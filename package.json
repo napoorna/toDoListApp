@@ -1,0 +1,25 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "This is a sample project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "todolist"
+  ],
+  "author": "Poorna Nadarajan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-layout": "^0.1.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
+    "hbs": "^4.1.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "gulp-sass": "^4.0.2"
+  }
+}
