@@ -14,8 +14,11 @@ router.get('/get_todos', (req, res) => {
     conn.query(queryString, (err, rows, fields) =>{
         if(err){
             console.log('failed to query ' + err)
+            res.send("Opps!! Something went wrong. Site will be up soon!!")
         }
-        res.render('getTodos', {data:rows})
+        else{
+            res.render('getTodos', {data:rows})
+        }
     })
     
 })
@@ -26,15 +29,19 @@ router.post('/add_todo', (req, res) => {
     if(todo !== ""){
         conn.query(queryString, [todo], (err, rows, fields)=>{
             if(err){
+                res.send("Opps!! Something went wrong. Site will be up soon!!")
                 console.log("failed to insert" + err);
             }
-            res.redirect('/get_todos')
+            else{
+                res.redirect('/get_todos')
+            }
         })
     }
     else{
         console.log("input is empty");
         res.redirect('/get_todos')
     }
+    
 })
 
 router.post('/update_todo/:id', (req, res) => {
@@ -43,9 +50,12 @@ router.post('/update_todo/:id', (req, res) => {
 
     conn.query(queryString, [todo_id], (err, rows, fields)=>{
         if(err){
+            res.send("Opps!! Something went wrong. Site will be up soon!!")
             console.log("failed to update" + err);
         }
-        res.redirect('/get_todos')
+        else{
+            res.redirect('/get_todos')
+        }
     })
 })
 
@@ -55,10 +65,17 @@ router.post('/delete_todo/:id', (req, res) => {
 
     conn.query(queryString, [todo_id], (err, rows, fields)=>{
         if(err){
+            res.send("Opps!! Something went wrong. Site will be up soon!!")
             console.log("failed to delete" + err);
         }
-        res.redirect('/get_todos')
+        else{
+            res.redirect('/get_todos')
+        }
     })
+})
+
+router.get('*', (req, res)=>{
+    res.render('404')
 })
 
 module.exports = router
