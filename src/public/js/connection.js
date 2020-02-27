@@ -6,7 +6,7 @@ const connectDb = function getConnection(){
         host: "localhost",
         port : '3306',
         user : 'root',
-        password : 'poosa2702',
+        password : '1234',
         database : "todo"
     })
 }
