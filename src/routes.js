@@ -23,13 +23,18 @@ router.get('/get_todos', (req, res) => {
 router.post('/add_todo', (req, res) => {
     const todo = req.body.add_todo_input
     const queryString = "INSERT INTO todos (todo) VALUES (?)"
-
-    conn.query(queryString, [todo], (err, rows, fields)=>{
-        if(err){
-            console.log("failed to insert" + err);
-        }
+    if(todo !== ""){
+        conn.query(queryString, [todo], (err, rows, fields)=>{
+            if(err){
+                console.log("failed to insert" + err);
+            }
+            res.redirect('/get_todos')
+        })
+    }
+    else{
+        console.log("input is empty");
         res.redirect('/get_todos')
-    })
+    }
 })
 
 router.post('/update_todo/:id', (req, res) => {
