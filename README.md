@@ -1,5 +1,5 @@
 # toDoListApp
-- I have created a simple todolist App where you can add items to the list, mark as Done and delete the todo item from the list.
+- I have created a simple todolist App where you can add items to the list, mark as Done and delete the todo item from the list. Didn't focus much on the UI part. Just included the bootstarp for layout purpose.
 
 # Technology Used
 - NodeJS
